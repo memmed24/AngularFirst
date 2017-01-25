@@ -1,3 +1,47 @@
 <h1>
-  {{title}}
+  {{name}} 
 </h1>
+<h3>{{title}}</h3>
+<h2>
+	
+	{{adress.street}}
+
+</h2>
+<h1>
+	{{adress.city}}
+</h1>
+<button (click)=toggleStudent()>{{showstudent ? "Hide Student" : "Show Student"}}</button>
+<div *ngIf="showstudent">
+	<ul>
+		<li *ngFor="let students of student; let i = index">
+			{{students}} <button (click)="deleteStudent(i)">X</button>
+		</li>
+	</ul>
+	<form (submit)="addStudent(studentss.value)">
+		<input type="text" #studentss>
+	</form>
+
+</div>
+<h1>{{surname}}</h1>
+<hr>
+<h2>Edit User</h2>
+<form action="">
+	<label for="">Name</label> <br>
+	<input type="text" name="name" [(ngModel)]="name"> <br>
+	<input type="text" name="title" [(ngModel)]="title"> <br>
+	<input type="text" name="adress.street" [(ngModel)]="adress.street"> <br>
+	<input type="text" name="adress.city" [(ngModel)]="adress.city"> <br>
+	<input type="text" name="surname" [(ngModel)]="surname"> <br>
+</form>
+
+<form action="">
+	<input type="text" name="fucking" [(ngModel)]="fucking">
+</form>
+<h1>Hello {{fucking}}</h1>
+<hr>	
+<hr>
+<h3>Posts</h3>
+<div *ngFor="let post of posts">
+	<h3>{{post.body}}</h3>
+	<p>{{post.title}}</p>
+</div>
